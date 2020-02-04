@@ -49,7 +49,17 @@ public class Freecell {
 				System.out.print("Command > ");
 
 				char from = scan.next().charAt(0);
-				if (from != 'x' && from != 'r') {
+				if (from == 'c') {
+					char col = scan.next().charAt(0);
+					errorIndex = table.rotateColumn(col);
+				} else if (from == 'r') {
+					System.out.println("\nRestarting Game . . .");
+					quit = false;
+					break;
+				} else if (from == 'x') {
+					quit = true;
+					break;
+				} else {
 					char to = scan.next().charAt(0);
 					errorIndex = table.moveCards(from, to);
 
@@ -57,13 +67,6 @@ public class Freecell {
 						System.out.println("\nYou win!");
 						break;
 					}
-				} else if (from == 'r') {
-					System.out.println("\nRestarting Game . . .");
-					quit = false;
-					break;
-				} else {
-					quit = true;
-					break;
 				}
 			}
 		}

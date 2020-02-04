@@ -19,6 +19,7 @@ public class Table {
         Deck deck = new Deck();
         Random random = new Random();
 
+        /**
         for (int i = 0; i < COLUMN_SIZE; i++) {
             int number = 4 + random.nextInt(6); // 4 to 9
             
@@ -28,6 +29,16 @@ public class Table {
                 columns.add(new Column(deck.popCard()));
             } else {
                 columns.add(new Column(deck.popCard(number))); // Column 1 to 7
+            }
+        }*/
+        for (int i = 0; i < COLUMN_SIZE; i++) {
+            
+            if (i == COLUMN_SIZE - 1) { // Column 9 
+                columns.add(new Column());
+            } else if (i >= COLUMN_SIZE - 9 && i <= COLUMN_SIZE - 6) {  // Column 8
+                columns.add(new Column(deck.popCard(7)));
+            } else {
+                columns.add(new Column(deck.popCard(6))); // Column 1 to 7
             }
         }
         piles.put('s', new Column());
@@ -100,6 +111,21 @@ public class Table {
             }
         } else {
             // can only move from column 1 to 9;
+            return 1;
+        }
+        return 0;
+    }
+
+    /**
+	* This method is called by the main fucntion
+    * @param col Determines which column to rotate
+	*/
+    public int rotateColumn(Character col) {
+        if ((col >= 49) && (col <= 57)) {
+            int colIndex = col - 49;
+            Column column = columns.get(colIndex);
+            column.rotate(1);
+        } else {
             return 1;
         }
         return 0;

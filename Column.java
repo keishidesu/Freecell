@@ -50,6 +50,14 @@ public class Column {
     }
 
     /**
+	* This method rotates the column by bring the last card to the first position of the column
+    * @param number
+	*/
+    public void rotate(int number) {
+        Collections.rotate(cards, number);
+    }
+
+    /**
 	* This checks whether card exists or not
     * @return boolean true or false
 	*/
