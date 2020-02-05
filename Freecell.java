@@ -43,14 +43,28 @@ public class Freecell {
 			Table table = new Table();
 			int errorIndex = 0;
 
+			System.out.println("=============================================================");
+			System.out.println("New Game");
+			System.out.println("Command > <Column Number> <Column Number>||<Pile Character>");
+			System.out.println();
+			System.out.println("Press c to column rotate");
+			System.out.println("Command > c <Column Number>");
+			System.out.println();
+			System.out.println("Press r to restart game");
+			System.out.println("Command > r");
+			System.out.println();
+			System.out.println("Press x to quit game");
+			System.out.println("Command > x");
+			System.out.println("=============================================================\n");
+
 			while(true) {
 				System.out.println(table.toString());
 				System.out.println(getErrorMessage(errorIndex));
 				System.out.print("Command > ");
 
-				char from = scan.next().charAt(0);
+				char from = scan.next().toLowerCase().charAt(0);
 				if (from == 'c') {
-					char col = scan.next().charAt(0);
+					char col = scan.next().toLowerCase().charAt(0);
 					errorIndex = table.rotateColumn(col);
 				} else if (from == 'r') {
 					System.out.println("\nRestarting Game . . .");
@@ -60,16 +74,21 @@ public class Freecell {
 					quit = true;
 					break;
 				} else {
-					char to = scan.next().charAt(0);
+					char to = scan.next().toLowerCase().charAt(0);
 					errorIndex = table.moveCards(from, to);
 
 					if (table.isColumnsEmpty()) {
-						System.out.println("\nYou win!");
+						System.out.println("\n=============================");
+						System.out.println("You win (^o^)");
+						System.out.println("=============================\n");
 						break;
 					}
 				}
 			}
 		}
-		System.out.println("End of Game . . .");
+		System.out.println("\n=============================");
+		System.out.println("Game ended . . .");
+		System.out.println("Thank You For Playing (^0^)");
+		System.out.println("=============================\n");
 	}
 }

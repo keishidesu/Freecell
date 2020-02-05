@@ -25,7 +25,7 @@ public class Deck {
 
 	/**
 	* This method carries out the card popping movement
-	* for Columns 1 to 7
+	* for Columns 1 to 8
 	* @param number Number of cards
 	* @return ArrayList of cards 
 	*/
@@ -35,7 +35,6 @@ public class Deck {
         if (number > this.cards.size()) {
             number = this.cards.size();
         }
-
         for (int i = 0; i < number; i++) {
             cards.add(this.cards.pop());
         }
@@ -44,7 +43,6 @@ public class Deck {
     
 	/**
 	* This method carries out the card popping movement
-	* for Column 8
 	* @return ArrayList of cards 
 	*/
     public ArrayList<Card> popCard() {

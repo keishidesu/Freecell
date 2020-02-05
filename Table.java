@@ -35,10 +35,10 @@ public class Table {
             
             if (i == COLUMN_SIZE - 1) { // Column 9 
                 columns.add(new Column());
-            } else if (i >= COLUMN_SIZE - 9 && i <= COLUMN_SIZE - 6) {  // Column 8
+            } else if (i >= COLUMN_SIZE - 9 && i <= COLUMN_SIZE - 6) {  // Column 1 to Column 4
                 columns.add(new Column(deck.popCard(7)));
             } else {
-                columns.add(new Column(deck.popCard(6))); // Column 1 to 7
+                columns.add(new Column(deck.popCard(6))); // Column 5 to Column 8
             }
         }
         piles.put('s', new Column());
